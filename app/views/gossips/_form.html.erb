@@ -1,0 +1,27 @@
+<%= form_with(model: gossip, local: true) do |form| %>
+  <% if gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gossip.errors.count, "error") %> prohibited this gossip from being saved:</h2>
+
+      <ul>
+      <% gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :anonymous_author %>
+    <%= form.text_field :anonymous_author, id: :gossip_anonymous_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, id: :gossip_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
